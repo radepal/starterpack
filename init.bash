@@ -29,6 +29,10 @@ systemctl enable tlp
 tlp-stat -b
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
 flatpak install flathub com.spotify.Client
 flatpak install flathub com.slack.Slack
+flatpak install flathub com.microsoft.Teams
+flatpak install flathub com.visualstudio.code
+flatpak install flathub com.jetbrains.IntelliJ-IDEA-Ultimate
+flatpak install flathub com.getpostman.Postman
+flatpak install flathub us.zoom.Zoom
