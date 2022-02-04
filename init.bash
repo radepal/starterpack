@@ -1,3 +1,4 @@
+echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf
 dnf upgrade --refresh
 
 dnf install -y fedora-workstation-repositories
@@ -7,9 +8,9 @@ dnf install -y \
   
 dnf install -y \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-dnf install curl htop wget atop vim lm_sensors ksensors  vlc lm_sensors ksensors dnf-plugins-core bash-completion git-all hwinfo mc jq flatpak  tlp tlp-rdw
-
-
+  
+dnf install -y https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
+dnf install -y curl htop wget atop vim lm_sensors ksensors  vlc lm_sensors ksensors dnf-plugins-core bash-completion git-all hwinfo mc jq flatpak  tlp tlp-rdw
 
 
 dnf install -y gcc elfutils-libelf-devel kernel-devel akmod-acpi_call akmod-tp_smapi
