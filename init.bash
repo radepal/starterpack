@@ -1,4 +1,5 @@
 echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf
+echo "vm.swappiness = 1" >> /etc/sysctl.conf
 dnf upgrade --refresh
 
 dnf install -y fedora-workstation-repositories
@@ -36,3 +37,8 @@ flatpak install flathub com.visualstudio.code
 flatpak install flathub com.jetbrains.IntelliJ-IDEA-Ultimate
 flatpak install flathub com.getpostman.Postman
 flatpak install flathub us.zoom.Zoom
+
+sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
+sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
+ sudo sh -c 'echo -e "[1password]\nname=1Password Beta Channel\nbaseurl=https://downloads.1password.com/linux/rpm/beta/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
+sudo dnf install 1password  
